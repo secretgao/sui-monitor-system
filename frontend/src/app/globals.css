@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* 自定义组件样式 */
+@layer components {
+  .stats-card {
+    @apply bg-gradient-to-br from-blue-500 to-purple-600 text-white rounded-lg p-5 mb-4;
+  }
+
+  .transaction-item {
+    @apply border border-gray-200 rounded-lg p-4 mb-3 bg-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .status-success {
+    @apply text-green-600;
+  }
+
+  .status-failure {
+    @apply text-red-600;
+  }
+
+  .status-pending {
+    @apply text-yellow-600;
+  }
+} 
